@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2022 at 10:51 AM
+-- Generation Time: Mar 30, 2022 at 08:28 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -58,7 +58,7 @@ INSERT INTO `activity_log` (`activity_log_id`, `username`, `date`, `action`) VAL
 --
 
 CREATE TABLE `admin` (
-  `id` bigint(20) NOT NULL,
+  `admin_id` bigint(20) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
@@ -68,7 +68,7 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `email`, `password`) VALUES
+INSERT INTO `admin` (`admin_id`, `username`, `email`, `password`) VALUES
 (1, 'admin@scocs.edu.pk', 'admin@scocs.edu.pk', '$2y$10$Qmnk4PU68g1Npba18sCvNuISMZmHWGgUNX6WNs9MESLprIsHeSXTq');
 
 -- --------------------------------------------------------
@@ -166,7 +166,7 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`class_id`, `class_name`, `class_session`) VALUES
-(25, 'Batch-5', 2018);
+(1, 'B-5', 2018);
 
 -- --------------------------------------------------------
 
@@ -636,7 +636,7 @@ CREATE TABLE `student` (
   `firstname` varchar(100) NOT NULL,
   `lastname` varchar(100) NOT NULL,
   `class_id` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
+  `roll_no` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `image` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -648,8 +648,8 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`student_id`, `firstname`, `lastname`, `class_id`, `username`, `password`, `image`, `email`, `phone`, `dob`) VALUES
-(222, 'Zeeshan', 'Hassan', 25, '2018-SCOCS-Batch-5-1', '$2y$10$K9bMQs8ECWbepxu7ZQum0.nmMVMcO4bGoCK.AtD5uxbj6V.LK5AJy', 'uploads/NO-IMAGE-AVAILABLE.jpg', 'muhammadaneesrajpoot@gmail.com', '030000000000667', '2022-03-29');
+INSERT INTO `student` (`student_id`, `firstname`, `lastname`, `class_id`, `roll_no`, `password`, `image`, `email`, `phone`, `dob`) VALUES
+(1, 'Kamran', 'Waris', 1, '2018-scocs-lhr-1', '$2y$10$WY.ZuXVS.kBaI6ntCvwuCOEYC/rTWN5DHSRRb9.rFYJX2vatJLqzG', 'uploads/NO-IMAGE-AVAILABLE.jpg', 'mianwarissb@gmail.com', '03020707150', '2001-02-09');
 
 -- --------------------------------------------------------
 
@@ -741,14 +741,6 @@ CREATE TABLE `teacher` (
   `teacher_status` varchar(20) NOT NULL,
   `teacher_stat` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `teacher`
---
-
-INSERT INTO `teacher` (`teacher_id`, `username`, `password`, `firstname`, `lastname`, `department_id`, `image`, `about`, `teacher_status`, `teacher_stat`) VALUES
-(11, '1003', 'aladin', 'Imran', 'Aftab', 11, 'uploads/NO-IMAGE-AVAILABLE.jpg', '', '', 'Activated'),
-(12, '1000', 'morante', 'Asim', 'Ismail', 11, 'uploads/NO-IMAGE-AVAILABLE.jpg', '<p style=\"text-align: justify;\">Dan Grossman has taught programming languages at the University of Washington since 2003. During his 10 years as a faculty member, his department&rsquo;s undergraduate students have elected him &ldquo;teacher of the year&rdquo; twice and awarded him second place once. His research, resulting in over 50 peer-reviewed publications, has covered the theory, design, and implementation of programming languages, as well as connections to computer architecture and softwar', '', 'Activated');
 
 -- --------------------------------------------------------
 
@@ -1356,7 +1348,7 @@ ALTER TABLE `activity_log`
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `answer`
@@ -1564,7 +1556,7 @@ ALTER TABLE `activity_log`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `admin_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `answer`
@@ -1582,7 +1574,7 @@ ALTER TABLE `assignment`
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `class_quiz`
@@ -1678,7 +1670,7 @@ ALTER TABLE `school_year`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `student_assignment`
@@ -1702,7 +1694,7 @@ ALTER TABLE `student_class_quiz`
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `teacher_backpack`
